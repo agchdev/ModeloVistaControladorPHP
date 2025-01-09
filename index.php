@@ -5,7 +5,9 @@
         if (isset($_POST["fIni"])) {
             $db = new db();
             if($db->compCrede($_POST["nom"], $_POST["psw"])){
-                setcookie("usuario", $_POST["nom"], time()+(86400*30));
+                if(isset($_POST["rec"])){
+                    setcookie("usuario", $_POST["nom"], time()+(86400*30));
+                }
                 $nUsu = $_POST["nom"];
                 require_once('bienvenida.php');
             }else{
@@ -15,7 +17,7 @@
     }
 
     function cerrar(){
-        setcookie("usuario", "", time()-30);
+        if(isset($_COOKIE["usuario"])) setcookie("usuario", "", time()-30);
         header("Location: index.php");
     }
 
