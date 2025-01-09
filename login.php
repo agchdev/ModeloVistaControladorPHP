@@ -17,6 +17,7 @@
         <br>
         <input type="checkbox" name="rec">
         <label for="rec">Recordar usuario</label>
+        <br>
         <input type="submit" value="Enviar" name="fIni">
     </form>
 </body>

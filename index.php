@@ -14,7 +14,7 @@
                 $nUsu = $_POST["nom"];
                 require_once('bienvenida.php');
             }else{
-                require_once('login.html');
+                require_once('login.php');
             }
         }
     }
@@ -35,7 +35,7 @@
             $nUsu = $_SESSION['usu'];
             require_once('bienvenida.php');
         }else{
-            header("Location:login.html");
+            header("Location:login.php");
         }
     }
 ?>
