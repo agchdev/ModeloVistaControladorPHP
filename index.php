@@ -14,6 +14,11 @@
         }
     }
 
+    function cerrar(){
+        setcookie("usuario", "", time()-30);
+        header("Location: index.php");
+    }
+
     if(isset($_REQUEST["action"])){
         $action = $_REQUEST["action"];
 
