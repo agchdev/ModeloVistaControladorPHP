@@ -8,7 +8,9 @@
 <body>
     <form action="index.php?action=inicio" method="post">
         <label for="nom">Nombre de usuario:</label>
-        <input type="text" name="nom">
+        <input type="text" name="nom" value="<?php 
+        if(isset($_COOKIE["usuario"])) echo $_COOKIE["usuario"];
+        ?>">
         <br>
         <label for="psw">Contraseña:</label>
         <input type="text" name="psw">

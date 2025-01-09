@@ -1,4 +1,6 @@
 <?php
+    session_start();
+
     require_once('modelo.php');
 
     function inicio(){
@@ -8,6 +10,7 @@
                 if(isset($_POST["rec"])){
                     setcookie("usuario", $_POST["nom"], time()+(86400*30));
                 }
+                $_SESSION["usu"] = $_POST["nom"];
                 $nUsu = $_POST["nom"];
                 require_once('bienvenida.php');
             }else{
@@ -17,7 +20,9 @@
     }
 
     function cerrar(){
-        if(isset($_COOKIE["usuario"])) setcookie("usuario", "", time()-30);
+        session_unset();
+        session_destroy();
+
         header("Location: index.php");
     }
 
@@ -26,8 +31,8 @@
 
         $action();
     }else{
-        if (isset($_COOKIE['usuario'])) {
-            $nUsu = $_COOKIE['usuario'];
+        if (isset($_SESSION['usu'])) {
+            $nUsu = $_SESSION['usu'];
             require_once('bienvenida.php');
         }else{
             header("Location:login.html");
