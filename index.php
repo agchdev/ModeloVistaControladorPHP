@@ -6,6 +6,11 @@
     function inicio(){
         if (isset($_POST["fIni"])) {
             $db = new db();
+
+            if(!isset($_POST["rec"]) && isset($_COOKIE["usuario"])){
+                setcookie("usuario", "", time()-30);
+            } 
+
             if($db->compCrede($_POST["nom"], $_POST["psw"])){
                 if(isset($_POST["rec"])){
                     setcookie("usuario", $_POST["nom"], time()+(86400*30));

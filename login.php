@@ -15,7 +15,7 @@
         <label for="psw">Contraseña:</label>
         <input type="text" name="psw">
         <br>
-        <input type="checkbox" name="rec">
+        <input type="checkbox" name="rec" <?php if(isset($_COOKIE["usuario"])) echo "checked"; ?>>
         <label for="rec">Recordar usuario</label>
         <br>
         <input type="submit" value="Enviar" name="fIni">
