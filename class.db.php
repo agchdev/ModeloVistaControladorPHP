@@ -33,7 +33,7 @@
         $consulta->execute(); // Ejecutamos la consulta
         $consulta->fetch(); // Obtenemos el resultado
 
-        $existe = false; // Variable para comprobar si el usuario existe
+        $xiste = false; // Variable para comprobar si el usuario existe
 
         if($count == 1) $existe = true; // Si el usuario existe
 

@@ -31,6 +31,25 @@
         header("Location: index.php"); // Redirigimos al index
     }
 
+    function registrar(){
+        if (isset($_POST["fReg"])) { // Si se ha pulsado el boton de enviar
+            require_once('modelo.php'); // Incluimos el modelo
+            require_once('class.db.php');
+
+            $db = new db(); // Creamos un objeto de la clase db
+
+            if(strcomp($_POST["psw"], $_POST["psw2"]) == 0){ // Si las contraseñas coinciden
+                if(!$db->checkUsuario($_POST["nom"])){ // Si el usuario ya existe
+                    if($db->registrarUsu($_POST["nom"], $_POST["psw"])){
+                        header("Location: index.php"); // Redirigimos al index
+                    }else{
+                        header("Location: index.php?action=registro"); // Redirigimos al registro
+                    }
+                };
+            }
+        }
+    }
+
     function registro(){ // Funcion de registro
         require_once('registro.html'); // Incluimos el archivo de registro
     }
