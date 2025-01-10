@@ -45,15 +45,22 @@
                     }else{
                         header("Location: index.php?action=registro"); // Redirigimos al registro
                     }
-                };
+                }else{
+                    $err = "<p style='color:red;'>El usuario ya existe</p>"; // Creamos la variable de error
+                }
+            }else{
+                $err = "<p style='color:red;'>Las contraseñas no coinciden</p>"; // Creamos la variable de error
             }
+            require_once('cabecera.html'); // Incluimos el archivo de cabeza
+            require_once('registro.php'); // Incluimos el archivo de registro
+            require_once('pie.html'); // Incluimos el archivo de pie
         }
     }
 
     function registro(){ // Funcion de registro
         require_once('cabecera.html'); // Incluimos el archivo de cabeza
         require_once('pie.html'); // Incluimos el archivo de pie
-        require_once('registro.html'); // Incluimos el archivo de registro
+        require_once('registro.php'); // Incluimos el archivo de registro
     }
 
     if(isset($_REQUEST["action"])){ // Si se ha pulsado un boton

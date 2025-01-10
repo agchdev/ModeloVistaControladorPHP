@@ -1,4 +1,7 @@
 <body>
+    <?php
+        if(isset($_POST["fReg"])) registrar();
+    ?>
     <form action="index.php?action=registrar" method="post">
         <label for="nom">Nombre de usuario:</label>
         <input type="text" name="nom">
