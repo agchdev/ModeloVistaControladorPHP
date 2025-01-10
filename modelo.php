@@ -20,22 +20,24 @@
     }
 
     function set_session(String $nom, $val) { // Esta funcion establece una sesion
-        session_start(); // Esta funcion inicia una sesion
+        start_session();
         $_SESSION[$nom] = $val; // Esta funcion establece una sesion
     }
 
     function get_session(String $nom){ // Esta funcion obtiene una sesion
-        session_start(); // Esta funcion inicia una sesion
+        start_session();
         return $_SESSION[$nom]; // Esta funcion obtiene una sesion
     }
 
     function unset_session(String $nom) { // Esta funcion elimina una sesion
+        start_session(); // Iniciamos la sesion
         session_unset(); // Esta funcion elimina una sesion
         session_destroy(); // Esta funcion destruye una sesion
     }
 
     function is_session(String $nom){ // Esta funcion comprueba si hay una sesion
-        session_start(); // Esta funcion inicia una sesion
+        start_session();
         $isset = isset($_SESSION[$nom]); // Esta funcion comprueba si hay una sesion
         return $isset; // Devolvemos el valor de la variable
+    }
 ?>

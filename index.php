@@ -27,7 +27,7 @@ function inicio(){ // Funcion de inicio
         require_once('modelo.php'); // Incluimos el modelo
 
         unset_session("usu"); // Eliminamos la sesion
-
+        
         header("Location: index.php"); // Redirigimos al index
     }
 
