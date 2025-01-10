@@ -13,6 +13,12 @@
         return $comp; // Devolvemos el valor de la variable
     }
 
+    function start_session() { // Esta funcion inicia una sesion
+        if(session_status() == PHP_SESSION_NONE) { // Si la sesion no esta iniciada
+            session_start(); // Iniciamos la sesion
+        }    
+    }
+
     function set_session(String $nom, $val) { // Esta funcion establece una sesion
         session_start(); // Esta funcion inicia una sesion
         $_SESSION[$nom] = $val; // Esta funcion establece una sesion
@@ -27,4 +33,9 @@
         session_unset(); // Esta funcion elimina una sesion
         session_destroy(); // Esta funcion destruye una sesion
     }
+
+    function is_session(String $nom){ // Esta funcion comprueba si hay una sesion
+        session_start(); // Esta funcion inicia una sesion
+        $isset = isset($_SESSION[$nom]); // Esta funcion comprueba si hay una sesion
+        return $isset; // Devolvemos el valor de la variable
 ?>

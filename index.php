@@ -36,8 +36,9 @@ function inicio(){ // Funcion de inicio
 
         $action(); // Ejecutamos la accion
     }else{
-        if (isset($_SESSION['usu'])) { // Si la sesion de usuario existe
-            $nUsu = $_SESSION['usu']; // Creamos la variable de sesion
+        require_once('modelo.php');
+        if (is_session("usu")) { // Si la sesion de usuario existe
+            $nUsu = get_session("usu"); // Creamos la variable de sesion
             require_once('bienvenida.php'); // Incluimos el archivo de bienvenida
         }else{
             header("Location:login.php"); // Redirigimos al login
