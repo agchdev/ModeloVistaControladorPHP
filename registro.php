@@ -1,6 +1,6 @@
 <body>
     <?php
-        if(isset($_POST["fReg"])) registrar();
+        if(isset($err)) echo $err;
     ?>
     <form action="index.php?action=registrar" method="post">
         <label for="nom">Nombre de usuario:</label>
