@@ -3,7 +3,8 @@
         private $conn; // Variable de conexion
         
         public function __construct(){ // Constructor
-            $this->conn = new mysqli("Localhost", "root", "", "cookies"); // Creamos la conexion
+            require_once('../../cred.php');
+            $this->conn = new mysqli("Localhost", USU_CONN, PSW_CONN, "cookies"); // Creamos la conexion
         }
 
         public function compCrede(String $nom, String $psw){ // Esta funcion comprueba las credenciales
